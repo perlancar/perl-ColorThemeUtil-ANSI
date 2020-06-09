@@ -10,6 +10,7 @@ use ColorThemeUtil::ANSI qw(
                        );
 
 {
+    delete local $ENV{NO_COLOR};
     local $ENV{COLOR} = 1;
     local $ENV{COLOR_DEPTH} = 16;
 
