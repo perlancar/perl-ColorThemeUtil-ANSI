@@ -21,6 +21,11 @@ sub item_color_to_ansi {
 
     return unless defined $color && length($color);
 
+    # force color depth detection
+    Color::ANSI::Util::_color_depth();
+
+    return "" if !$Color::ANSI::Util::_color_depth;
+
     my $ansi;
     if (ref $color eq 'HASH') {
         my $ansifg = $color->{ansi_fg};
